@@ -6,7 +6,7 @@ const schema = new Schema({
     required: true,
   },
   cost: {
-    type: String,
+    type: Number,
     required: true,
   },
   stock: {
@@ -21,6 +21,17 @@ const schema = new Schema({
     type: String,
     required: true,
   },
+  brand: {
+    type: String,
+    required: true,
+  },
+  tags: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+
 });
 
 export default model('Product', schema);
