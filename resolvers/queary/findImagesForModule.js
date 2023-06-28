@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 import { GraphQLError } from 'graphql';
-import Image from '../../models/Image';
+import Image from '../../models/Image.js';
 
 const findImagesForModule = async (root, args) => {
   const image = await Image.find({ mod: args.mod });
-  if (image.lenth === 0) {
+  if (image.length === 0) {
     throw new GraphQLError('No existe el modulo', {
       extensions: {
         code: 'USER_INPUT_ERROR',
