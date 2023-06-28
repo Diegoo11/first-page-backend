@@ -42,6 +42,10 @@ const typeDefs = `#graphql
     findSingleImage(
       id: ID!
     ): Image
+
+    findImagesForModule(
+      mod: String!
+    ): [Image]
   }
 
   type Mutation {
