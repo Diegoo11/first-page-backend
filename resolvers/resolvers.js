@@ -7,6 +7,7 @@ const resolvers = {
   Query: {
     testPerson: () => 'test',
     findSingleImage,
+    findImagesForModule,
   },
   Mutation: {
     editImage,
