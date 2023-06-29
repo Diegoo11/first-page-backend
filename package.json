@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Diegoo11/first-page-backend#readme",
   "dependencies": {
     "@apollo/server": "4.7.4",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "graphql": "16.6.0",
     "install": "^0.13.0",
