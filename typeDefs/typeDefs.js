@@ -1,4 +1,8 @@
 const typeDefs = `#graphql
+  type Token {
+    value: String!
+  }
+
   type Image {
     src: String!
     srcMobile: String
@@ -26,6 +30,12 @@ const typeDefs = `#graphql
     link: String
     mod: String!
     mId: String!
+    id: ID!
+  }
+
+  type Admin {
+    username: String!
+    password: String!
     id: ID!
   }
   
@@ -66,6 +76,11 @@ const typeDefs = `#graphql
       mId: String
       link: String
     ): Image
+
+    loginAdmin(
+      username: String!
+      password: String!
+    ): Token
   }
 `;
 
