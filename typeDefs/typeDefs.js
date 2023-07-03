@@ -1,4 +1,9 @@
 const typeDefs = `#graphql
+  type Module {
+    image: [Image]
+    text: [Text]
+  }
+
   type Token {
     value: String!
   }
@@ -56,6 +61,10 @@ const typeDefs = `#graphql
     findImagesForModule(
       mod: String!
     ): [Image]
+
+    findForModule(
+      mod: String!
+    ): Module
   }
 
   type Mutation {
@@ -68,12 +77,19 @@ const typeDefs = `#graphql
       link: String
     ): Image
 
+    createText(
+      name: String!
+      description: String
+      link: String
+      mod: String!
+      mId: String!
+    ): Text
+
     editImage(
-      src: String
+      id: String!
+      src: String!
       srcMobile: String
-      alt: String
-      mod: String
-      mId: String
+      alt: String!
       link: String
     ): Image
 
@@ -81,6 +97,14 @@ const typeDefs = `#graphql
       username: String!
       password: String!
     ): Token
+
+    editText(
+      id: String!
+      name: String!
+      description: String
+      link: String
+    ): Text
+
   }
 `;
 
