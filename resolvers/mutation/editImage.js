@@ -4,9 +4,12 @@ import Image from '../../models/Image.js';
 
 const editImage = async (root, args) => {
   const {
-    _id, src, srcMobile, link, alt,
+    id, src, srcMobile, link, alt,
   } = args;
-  const image = Image.findById(_id);
+
+  console.log(args);
+
+  const image = await Image.findById(id);
 
   image.src = src;
   image.srcMobile = srcMobile;
@@ -18,7 +21,7 @@ const editImage = async (root, args) => {
   } catch (err) {
     throw new GraphQLError(err.message, {
       extensions: {
-        code: 'USER_INPUT_ERROR',
+        code: 'SERVER_DATABASE_ERROR',
         invalidArgs: args,
       },
     });
