@@ -10,7 +10,7 @@ import editText from './mutation/editText.js';
 
 const resolvers = {
   Query: {
-    testPerson: () => 'test',
+    testConnection: () => 'Connected',
     findSingleImage,
     findImagesForModule,
     findForModule,
