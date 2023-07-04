@@ -52,7 +52,7 @@ const typeDefs = `#graphql
   }
 
   type Query {
-    testPerson: String!
+    testConnection: String!
 
     findSingleImage(
       id: ID!
