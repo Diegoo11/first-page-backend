@@ -3,12 +3,14 @@ import { GraphQLError } from 'graphql';
 import Image from '../../models/Image.js';
 
 const findSingleImage = async (root, args) => {
-  const image = Image.findById(args.id);
+  let image = null;
 
-  if (!image) {
-    throw new GraphQLError('Image not found', {
+  try {
+    image = await Image.findById(args.id);
+  } catch (err) {
+    throw new GraphQLError('Image not found, because id not valid', {
       extensions: {
-        error: 'FILE_NOT_FOUND',
+        code: 'INVALID_IDENTIFIER',
         invalidArgs: args.id,
       },
     });
