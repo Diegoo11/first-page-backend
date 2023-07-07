@@ -1,5 +1,6 @@
 const typeDefs = `#graphql
   type Module {
+    name: String!
     image: [Image]
     text: [Text]
   }
@@ -63,7 +64,7 @@ const typeDefs = `#graphql
     ): [Image]
 
     findForModule(
-      mod: String!
+      id: String!
     ): Module
   }
 
@@ -84,6 +85,10 @@ const typeDefs = `#graphql
       mod: String!
       mId: String!
     ): Text
+
+    createModule(
+      name: String!
+    ): Module
 
     editImage(
       id: String!
