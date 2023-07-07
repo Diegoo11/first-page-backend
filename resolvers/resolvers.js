@@ -7,6 +7,7 @@ import loginAdmin from './mutation/loginAdmin.js';
 import createText from './mutation/createText.js';
 import findForModule from './queary/findForModule.js';
 import editText from './mutation/editText.js';
+import createModule from './mutation/createModule.js';
 
 const resolvers = {
   Query: {
@@ -21,6 +22,7 @@ const resolvers = {
     editText,
     createImage,
     createText,
+    createModule,
   },
 };
 
