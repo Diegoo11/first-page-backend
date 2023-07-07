@@ -1,24 +1,24 @@
 /* eslint-disable import/extensions */
 import { GraphQLError } from 'graphql';
-import Image from '../../models/Image.js';
-import Text from '../../models/Text.js';
+import Module from '../../models/Module.js';
 
-const findForModule = async (root, args) => {
-  const image = await Image.find({ mod: args.mod });
-  const text = await Text.find({ mod: args.mod });
-  if (image.length === 0) {
-    throw new GraphQLError('No existe el modulo', {
+const findForModule = async (root, { id }) => {
+  // const image = await Image.find({ mod: args.mod });
+  // const text = await Text.find({ mod: args.mod });
+  let module = null;
+
+  try {
+    module = await Module.findById(id).populate('image').populate('text');
+  } catch (err) {
+    throw new GraphQLError('Module not found, because the id is invalid', {
       extensions: {
-        code: 'USER_INPUT_ERROR',
-        invalidArgs: args.mod,
+        code: 'INVALID_IDENTIFIER',
+        invalidArgs: id,
       },
     });
   }
-  const res = {
-    image,
-    text,
-  };
-  return res;
+
+  return module;
 };
 
 export default findForModule;
