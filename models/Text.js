@@ -12,14 +12,6 @@ const schema = new Schema({
   link: {
     type: String,
   },
-  mod: {
-    type: String,
-    required: true,
-  },
-  mId: {
-    type: String,
-    required: true,
-  },
 });
 
 export default model('Text', schema);
