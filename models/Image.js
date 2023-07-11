@@ -12,14 +12,6 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  mod: {
-    type: String,
-    required: true,
-  },
-  mId: {
-    type: String,
-    required: true,
-  },
   link: {
     type: String,
   },
