@@ -8,6 +8,7 @@ import createText from './mutation/createText.js';
 import findForModule from './queary/findForModule.js';
 import editText from './mutation/editText.js';
 import createModule from './mutation/createModule.js';
+import editModule from './mutation/editModule.js';
 
 const resolvers = {
   Query: {
@@ -23,6 +24,7 @@ const resolvers = {
     createImage,
     createText,
     createModule,
+    editModule,
   },
 };
 
