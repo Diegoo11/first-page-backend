@@ -4,7 +4,6 @@ import Text from '../../models/Text.js';
 
 const editModule = async (root, args) => {
   const { images, texts } = args;
-  console.log(images, texts);
   try {
     const editsImages = images.map(async (img) => {
       await Image.findByIdAndUpdate(img.id, {
