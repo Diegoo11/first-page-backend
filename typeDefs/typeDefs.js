@@ -1,4 +1,19 @@
 const typeDefs = `#graphql
+  input ImageInput {
+    id: ID!
+    src: String!
+    alt: String!
+    srcMobile: String
+    link: String
+  }
+
+  input TextInput {
+    id: ID!
+    name: String!
+    description: String!
+    link: String
+  }
+
   type Module {
     name: String!
     image: [Image]
@@ -13,8 +28,6 @@ const typeDefs = `#graphql
     src: String!
     srcMobile: String
     alt: String!
-    mod: String!
-    mId: String!
     link: String
     id: ID!
   }
@@ -34,8 +47,6 @@ const typeDefs = `#graphql
     name: String!
     description: String!
     link: String
-    mod: String!
-    mId: String!
     id: ID!
   }
 
@@ -73,8 +84,6 @@ const typeDefs = `#graphql
       src: String!
       srcMobile: String
       alt: String!
-      mod: String!
-      mId: String!
       link: String
     ): Image
 
@@ -82,8 +91,6 @@ const typeDefs = `#graphql
       name: String!
       description: String
       link: String
-      mod: String!
-      mId: String!
     ): Text
 
     createModule(
@@ -109,7 +116,11 @@ const typeDefs = `#graphql
       description: String
       link: String
     ): Text
-
+    
+    editModule(
+      images: [ImageInput]
+      texts: [TextInput]
+    ): Module
   }
 `;
 
