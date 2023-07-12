@@ -2,7 +2,6 @@ import { GraphQLError } from 'graphql';
 import Text from '../../models/Text.js';
 
 const editText = async (root, args) => {
-  console.log(args);
   const text = await Text.findById(args.id);
   const { name, description, link } = args;
   text.name = name;
