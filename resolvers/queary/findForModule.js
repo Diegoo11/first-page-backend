@@ -3,8 +3,6 @@ import { GraphQLError } from 'graphql';
 import Module from '../../models/Module.js';
 
 const findForModule = async (root, { id }) => {
-  // const image = await Image.find({ mod: args.mod });
-  // const text = await Text.find({ mod: args.mod });
   let module = null;
 
   try {
