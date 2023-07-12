@@ -7,8 +7,6 @@ const editImage = async (root, args) => {
     id, src, srcMobile, link, alt,
   } = args;
 
-  console.log(args);
-
   const image = await Image.findById(id);
 
   image.src = src;
