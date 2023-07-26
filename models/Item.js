@@ -10,18 +10,22 @@ const schema = new Schema({
     required: true,
   },
   stock: {
-    tpye: Boolean,
+    type: Number,
     required: true,
   },
   name: {
     type: String,
     required: true,
   },
-  descripcion: {
+  description: {
     type: String,
     required: true,
   },
   brand: {
+    type: String,
+    required: true,
+  },
+  src: {
     type: String,
     required: true,
   },
