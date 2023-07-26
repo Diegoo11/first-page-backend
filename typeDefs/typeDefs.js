@@ -14,6 +14,10 @@ const typeDefs = `#graphql
     link: String
   }
 
+  input TagsInput {
+    name: String!
+  }
+
   type Module {
     name: String!
     image: [Image]
@@ -32,10 +36,11 @@ const typeDefs = `#graphql
     id: ID!
   }
 
-  type Product {
+  type Item {
     sku: String!
     cost: Int!
-    stock: Boolean!
+    src: String!
+    stock: Int!
     name: String!
     description: String!
     brand: String!
@@ -58,8 +63,11 @@ const typeDefs = `#graphql
   
   type User {
     username: String!
+    name: String!
+    lastname: String!
+    phone: String!
     password: String!
-    cart: [Product]!
+    cart: [Item]!
     id: ID!
   }
 
@@ -77,6 +85,18 @@ const typeDefs = `#graphql
     findForModule(
       id: String!
     ): Module
+
+    findAllItems: [Item]
+
+    findItemById(
+      id: String!
+    ): Item
+
+    findCategory(
+      category: String!
+    ): [Item]
+
+    findUserData: User
   }
 
   type Mutation {
@@ -97,6 +117,17 @@ const typeDefs = `#graphql
       name: String!
     ): Module
 
+    createItem(
+      sku: String!
+      cost: Int!
+      src: String!
+      stock: Int!
+      name: String!
+      description: String!
+      brand: String!
+      tags: [String]!
+    ): Item
+
     editImage(
       id: String!
       src: String!
@@ -105,7 +136,20 @@ const typeDefs = `#graphql
       link: String
     ): Image
 
+    createUser(
+      username: String!
+      password: String!
+      name: String!
+      lastname: String!
+      phone: String!
+    ): Token
+
     loginAdmin(
+      username: String!
+      password: String!
+    ): Token
+
+    loginUser(
       username: String!
       password: String!
     ): Token
@@ -121,6 +165,21 @@ const typeDefs = `#graphql
       images: [ImageInput]
       texts: [TextInput]
     ): Module
+
+    editItem(
+      id: String!
+      name: String
+      cost: Int
+      src: String
+      stock: Int
+      description: String
+      brand: String
+      tags: [String]
+    ): Item
+
+    addItemToCart(
+      itemId: String!
+    ): User
   }
 `;
 
