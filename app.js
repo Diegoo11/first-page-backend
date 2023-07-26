@@ -42,6 +42,7 @@ const { url } = await startStandaloneServer(server, {
       return { currentUser };
     }
   },
+  introspection: true,
 });
 
 console.log(`Server ready at ${url}`);
