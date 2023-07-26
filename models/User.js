@@ -12,9 +12,21 @@ const schema = new Schema({
   cart: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product',
+      ref: 'Item',
     },
   ],
+  name: {
+    type: String,
+    required: true,
+  },
+  lastname: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+  },
 });
 
 export default model('User', schema);
