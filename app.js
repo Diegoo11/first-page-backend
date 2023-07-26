@@ -15,6 +15,7 @@ import User from './models/User.js';
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
 });
 
 const PORT = Number(process.env.PORT);
