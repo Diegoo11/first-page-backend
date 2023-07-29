@@ -77,6 +77,17 @@ const typeDefs = `#graphql
     id: ID!
   }
 
+  type Shop {
+    city: String!
+    name: String!
+    direcction: String!
+    phone: String!
+    workingHours: String!
+    email: String!
+    src: String!
+    id: ID!
+  }
+
   type Query {
     testConnection: String!
 
@@ -105,6 +116,8 @@ const typeDefs = `#graphql
     findBrands: [Brand]
 
     findUserData: User
+
+    findShops: [Shop]
   }
 
   type Mutation {
@@ -187,6 +200,10 @@ const typeDefs = `#graphql
 
     addItemToCart(
       itemId: String!
+    ): User
+
+    removeItemCart(
+      id: String!
     ): User
   }
 `;

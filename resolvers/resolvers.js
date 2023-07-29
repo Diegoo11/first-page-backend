@@ -12,6 +12,7 @@ import editImage from './mutation/editImage.js';
 import editText from './mutation/editText.js';
 import editModule from './mutation/editModule.js';
 import editItem from './mutation/editItem.js';
+import removeItemCart from './mutation/removeItemCart.js';
 
 import findForModule from './queary/findForModule.js';
 import findSingleImage from './queary/findSingleImage.js';
@@ -21,6 +22,7 @@ import findItemById from './queary/findItemById.js';
 import findCategory from './queary/findCategory.js';
 import findUserData from './queary/findUserData.js';
 import findBrands from './queary/findBrands.js';
+import findShops from './queary/findShops.js';
 
 import addItemToCart from './mutation/addIemToCart.js';
 
@@ -35,6 +37,7 @@ const resolvers = {
     findCategory,
     findUserData,
     findBrands,
+    findShops,
   },
   Mutation: {
     loginAdmin,
@@ -49,6 +52,7 @@ const resolvers = {
     editModule,
     editItem,
     addItemToCart,
+    removeItemCart,
   },
 };
 
