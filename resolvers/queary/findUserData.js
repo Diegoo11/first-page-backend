@@ -2,7 +2,7 @@ import { GraphQLError } from 'graphql';
 
 const findUserData = async (root, args, context) => {
   const { currentUser } = context;
-  const userWithCart = await currentUser.populate('cart');
+  const userWithCart = await currentUser;
   if (!currentUser) {
     throw new GraphQLError('Not autenticate', {
       extensions: {
