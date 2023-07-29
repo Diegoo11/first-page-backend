@@ -28,6 +28,12 @@ const typeDefs = `#graphql
     value: String!
   }
 
+  type Brand {
+    src: String!
+    name: String!
+    id: ID!
+  }
+
   type Image {
     src: String!
     srcMobile: String
@@ -95,6 +101,8 @@ const typeDefs = `#graphql
     findCategory(
       category: String!
     ): [Item]
+
+    findBrands: [Brand]
 
     findUserData: User
   }
