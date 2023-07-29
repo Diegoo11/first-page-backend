@@ -20,6 +20,7 @@ import findAllItems from './queary/findAllItems.js';
 import findItemById from './queary/findItemById.js';
 import findCategory from './queary/findCategory.js';
 import findUserData from './queary/findUserData.js';
+import findBrands from './queary/findBrands.js';
 
 import addItemToCart from './mutation/addIemToCart.js';
 
@@ -33,6 +34,7 @@ const resolvers = {
     findItemById,
     findCategory,
     findUserData,
+    findBrands,
   },
   Mutation: {
     loginAdmin,
