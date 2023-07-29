@@ -11,9 +11,11 @@ const schema = new mongoose.Schema({
   alt: {
     type: String,
     required: true,
+    maxlength: 20,
   },
   link: {
     type: String,
+    maxlength: 20,
   },
 });
 

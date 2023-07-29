@@ -4,10 +4,13 @@ const schema = new Schema({
   sku: {
     type: String,
     required: true,
+    unique: true,
+    maxlength: 20,
   },
   cost: {
     type: Number,
     required: true,
+    maxlength: 20,
   },
   stock: {
     type: Number,
@@ -16,14 +19,18 @@ const schema = new Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
+    maxlength: 50,
   },
   description: {
     type: String,
     required: true,
+    maxlength: 300,
   },
   brand: {
     type: String,
     required: true,
+    maxlength: 20,
   },
   src: {
     type: String,
