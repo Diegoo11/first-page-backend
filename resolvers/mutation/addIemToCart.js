@@ -23,7 +23,7 @@ const addItemToCart = async (root, { itemId }, context) => {
   currentUser.cart = currentUser.cart.concat(itemId);
 
   await currentUser.save();
-  return currentUser;
+  return currentUser.populate('cart');
 };
 
 export default addItemToCart;
