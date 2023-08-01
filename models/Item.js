@@ -3,8 +3,6 @@ import { Schema, model } from 'mongoose';
 const schema = new Schema({
   sku: {
     type: String,
-    required: true,
-    unique: true,
     maxlength: 20,
   },
   cost: {
@@ -25,7 +23,7 @@ const schema = new Schema({
   description: {
     type: String,
     required: true,
-    maxlength: 300,
+    maxlength: 400,
   },
   brand: {
     type: String,
@@ -39,7 +37,6 @@ const schema = new Schema({
   tags: [
     {
       type: String,
-      required: true,
     },
   ],
 
