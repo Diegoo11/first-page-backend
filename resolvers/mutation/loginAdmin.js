@@ -26,7 +26,6 @@ const loginAdmin = async (root, args) => {
   }
 
   const adminForToken = {
-    username,
     id: admin._id,
   };
 
