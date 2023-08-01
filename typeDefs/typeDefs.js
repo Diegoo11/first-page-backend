@@ -1,4 +1,21 @@
 const typeDefs = `#graphql
+  input BrandInput {
+    id: ID!
+    src: String!
+    name: String!
+  }
+
+  input ShopInput {
+    id: ID!
+    city: String!
+    name: String!
+    direcction: String!
+    phone: String!
+    workingHours: String!
+    email: String!
+    src: String!
+  }
+
   input ImageInput {
     id: ID!
     src: String!
@@ -15,7 +32,7 @@ const typeDefs = `#graphql
   }
 
   input TagsInput {
-    name: String!
+    name: String
   }
 
   type Module {
@@ -43,14 +60,13 @@ const typeDefs = `#graphql
   }
 
   type Item {
-    sku: String!
     cost: Int!
     src: String!
     stock: Int!
     name: String!
     description: String!
     brand: String!
-    tags: [String!]
+    tags: [String]
     id: ID!
   }
 
@@ -118,6 +134,8 @@ const typeDefs = `#graphql
     findUserData: User
 
     findShops: [Shop]
+
+    findAdminData: Admin
   }
 
   type Mutation {
@@ -139,14 +157,13 @@ const typeDefs = `#graphql
     ): Module
 
     createItem(
-      sku: String!
       cost: Int!
       src: String!
       stock: Int!
       name: String!
       description: String!
       brand: String!
-      tags: [String]!
+      tags: [String]
     ): Item
 
     editImage(
@@ -189,14 +206,21 @@ const typeDefs = `#graphql
 
     editItem(
       id: String!
-      name: String
-      cost: Int
-      src: String
-      stock: Int
-      description: String
-      brand: String
-      tags: [String]
+      name: String!
+      cost: Int!
+      src: String!
+      stock: Int!
+      description: String!
+      brand: String!
     ): Item
+
+    editBrand(
+      brands: [BrandInput]
+    ): [Brand]
+
+    editShop(
+      shops: [ShopInput]
+    ): [Shop]
 
     addItemToCart(
       itemId: String!
@@ -205,6 +229,10 @@ const typeDefs = `#graphql
     removeItemCart(
       id: String!
     ): User
+
+    removeItem(
+      id: String!
+    ): String
   }
 `;
 
