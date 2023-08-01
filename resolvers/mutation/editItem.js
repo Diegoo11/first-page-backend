@@ -3,7 +3,7 @@ import Item from '../../models/Item.js';
 
 const editItem = async (root, args) => {
   const {
-    id, name, cost, stock, description, brand, tags, src,
+    id, name, cost, stock, description, brand, src,
   } = args;
   let item;
 
@@ -24,7 +24,6 @@ const editItem = async (root, args) => {
   item.stock = stock;
   item.description = description;
   item.brand = brand;
-  item.tags = tags;
 
   try {
     await item.save();
